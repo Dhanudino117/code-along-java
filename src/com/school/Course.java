@@ -1,17 +1,22 @@
 
+
 public class Course {
-    private static int nextCourseIdCounter = 101; // static counter for auto ID
+    private static int nextCourseIdCounter = 1;
+
     private int courseId;
     private String courseName;
 
-    // Constructor to initialize Course object
     public Course(String courseName) {
         this.courseId = nextCourseIdCounter++;
         this.courseName = courseName;
     }
 
-    // Method to display course details
-    public void displayDetails() {
-        System.out.println("Course ID: C" + courseId + ", Name: " + courseName);
+    // Getters
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public String getCourseName() {
+        return courseName;
     }
 }

@@ -1,24 +1,32 @@
-//Main.java
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        // Creating Students using constructor
-        Student s1 = new Student("Alice");
-        Student s2 = new Student("Bob");
-        Student s3 = new Student("Charlie");
+        Student student1 = new Student("Alice");
+        Student student2 = new Student("Bob");
 
-        // Creating Courses using constructor
-        Course c1 = new Course("Mathematics");
-        Course c2 = new Course("Physics");
-        Course c3 = new Course("Chemistry");
+        Course course1 = new Course("Math");
+        Course course2 = new Course("Science");
 
-        // Displaying Student details
-        s1.displayDetails();
-        s2.displayDetails();
-        s3.displayDetails();
+        List<AttendanceRecord> attendanceLog = new ArrayList<>();
 
-        // Displaying Course details
-        c1.displayDetails();
-        c2.displayDetails();
-        c3.displayDetails();
+        // Valid statuses
+        AttendanceRecord record1 = new AttendanceRecord(student1.getStudentId(), course1.getCourseId(), "Present");
+        AttendanceRecord record2 = new AttendanceRecord(student2.getStudentId(), course2.getCourseId(), "Absent");
+
+        // Invalid status test
+        AttendanceRecord record3 = new AttendanceRecord(student1.getStudentId(), course2.getCourseId(), "Late");
+
+        attendanceLog.add(record1);
+        attendanceLog.add(record2);
+        attendanceLog.add(record3);
+
+        // Display all records
+        for (AttendanceRecord record : attendanceLog) {
+            record.displayRecord();
+        }
     }
 }
