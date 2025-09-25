@@ -1,22 +1,25 @@
 
 
-public class Course {
-    private static int nextCourseIdCounter = 1;
-
+public class Course implements Storable {
     private int courseId;
     private String courseName;
+    private static int nextCourseId = 1;
 
     public Course(String courseName) {
-        this.courseId = nextCourseIdCounter++;
+        this.courseId = nextCourseId++;
         this.courseName = courseName;
     }
 
-    // Getters
     public int getCourseId() {
         return courseId;
     }
 
     public String getCourseName() {
         return courseName;
+    }
+
+    @Override
+    public String toDataString() {
+        return courseId + "," + courseName;
     }
 }
