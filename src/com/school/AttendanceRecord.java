@@ -1,20 +1,13 @@
-
-
 public class AttendanceRecord {
     private int studentId;
-    private int courseId;
-    private String status;
+    private String date;
+    private boolean present;
 
-    public AttendanceRecord(int studentId, int courseId, String status) {
+    // Constructor
+    public AttendanceRecord(int studentId, String date, boolean present) {
         this.studentId = studentId;
-        this.courseId = courseId;
-
-        if (status.equalsIgnoreCase("Present") || status.equalsIgnoreCase("Absent")) {
-            this.status = status;
-        } else {
-            this.status = "Invalid";
-            System.out.println("⚠️ Warning: Invalid status provided. Must be 'Present' or 'Absent'.");
-        }
+        this.date = date;
+        this.present = present;
     }
 
     // Getters
@@ -22,16 +15,18 @@ public class AttendanceRecord {
         return studentId;
     }
 
-    public int getCourseId() {
-        return courseId;
+    public String getDate() {
+        return date;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean isPresent() {
+        return present;
     }
 
-    // Display method
+    // Method to display record
     public void displayRecord() {
-        System.out.println("Student ID: " + studentId + ", Course ID: " + courseId + ", Status: " + status);
+        System.out.println("Student ID: " + studentId);
+        System.out.println("Date: " + date);
+        System.out.println("Present: " + (present ? "Yes" : "No"));
     }
 }
