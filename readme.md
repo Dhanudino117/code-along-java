@@ -20,6 +20,17 @@
 - Demonstrated creation and display of `Student`, `Teacher`, and `Staff` objects in `Main.java`.
 - Updated `AttendanceRecord` creation to use the inherited `getId()` method.
 
+## Part 6: Interface-Driven Persistence with File Storage
+- Added `Storable` interface to enforce a consistent `toDataString()` method for data persistence.
+- Updated `Student`, `Course`, and `AttendanceRecord` to implement `Storable`.
+- Created `FileStorageService` to handle saving lists of `Storable` objects into text files.
+- Modified `Main.java` to demonstrate saving Students, Courses, and AttendanceRecords into respective files.
+- Run the program with:
+  ```bash
+  javac src/com/school/*.java
+  java com.school.Main
+
+
 
 ### How to Run (ensure this is up-to-date)
 1. Navigate to the project root directory.

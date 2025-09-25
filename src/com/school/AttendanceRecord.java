@@ -1,32 +1,36 @@
-public class AttendanceRecord {
+
+
+public class AttendanceRecord implements Storable {
     private int studentId;
-    private String date;
+    private int courseId;
     private boolean present;
 
-    // Constructor
-    public AttendanceRecord(int studentId, String date, boolean present) {
+    public AttendanceRecord(int studentId, int courseId, boolean present) {
         this.studentId = studentId;
-        this.date = date;
+        this.courseId = courseId;
         this.present = present;
     }
 
-    // Getters
     public int getStudentId() {
         return studentId;
     }
 
-    public String getDate() {
-        return date;
+    public int getCourseId() {
+        return courseId;
     }
 
     public boolean isPresent() {
         return present;
     }
 
-    // Method to display record
     public void displayRecord() {
-        System.out.println("Student ID: " + studentId);
-        System.out.println("Date: " + date);
-        System.out.println("Present: " + (present ? "Yes" : "No"));
+        System.out.println("Student ID: " + studentId +
+                           ", Course ID: " + courseId +
+                           ", Present: " + (present ? "Yes" : "No"));
+    }
+
+    @Override
+    public String toDataString() {
+        return studentId + "," + courseId + "," + (present ? "Present" : "Absent");
     }
 }
